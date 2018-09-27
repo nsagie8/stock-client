@@ -1,0 +1,7 @@
+<div>
+  <mat-tab-group>
+    <mat-tab class="test"  *ngFor="let stock of stockList" [label]="stock.companyName">
+        <app-one-stock-view [stock]="stock"></app-one-stock-view>
+    </mat-tab>
+  </mat-tab-group>
+</div>

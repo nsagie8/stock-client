@@ -1,0 +1,43 @@
+<table mat-table [dataSource]="stockList$ | async" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="companyName">
+      <th mat-header-cell *matHeaderCellDef> company </th>
+      <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="startPrice">
+      <th mat-header-cell *matHeaderCellDef> starting price </th>
+      <td mat-cell *matCellDef="let element"> {{element.startPrice | currency:"$"}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="currentPrice">
+      <th mat-header-cell *matHeaderCellDef> current price </th>
+      <td mat-cell *matCellDef="let element"> {{element.currentPrice | currency:"$"}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="changePercentage">
+      <th mat-header-cell *matHeaderCellDef> percentage </th>
+      <td mat-cell *matCellDef="let element"> {{element.changePercentage | number}}% </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="trade(element.companyName)">trade</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<!-- displayedColumns: string[] = ['companyName', 'startPrice', 'currentPrice', 'changePercentage']; -->
+
+<!-- export interface Stock{
+  companyName: string;
+  startPrice: number;
+  currentPrice: number;
+  quantity: number;
+} -->

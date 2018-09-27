@@ -1,0 +1,5 @@
+<h1 [class]="stock.changePercentage >= 0 ? 'green' : 'red'">
+    {{stock.companyName}} {{stock.changePercentage | number}}% {{stock.currentPrice | number}}$
+</h1>
+
+

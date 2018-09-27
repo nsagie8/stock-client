@@ -1,0 +1,7 @@
+<div [class]="currName == '' ? 'form' : 'bla' ">
+  <mat-form-field>
+    <mat-select [placeholder]="currName">
+      <mat-option *ngFor="let name of stockSNames" (click)="navToForm(name)">{{name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div> 

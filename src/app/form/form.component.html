@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="send()">
+  <div>
+    <mat-radio-group formControlName="action">
+      <mat-radio-button value="buy" (click)="actionClick('buy')">buy</mat-radio-button>
+      <mat-radio-button [disabled]="!ableToSell" value="sell" (click)="actionClick('sell')">sell</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput type="number" placeholder="amount" formControlName="quantity" min="1">
+    </mat-form-field><br>
+    <input type="submit" value="send" [disabled]="form.invalid" />
+    
+  </div>
+</form>
